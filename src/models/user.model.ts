@@ -1,4 +1,5 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import { StatusUser } from './enums';
 
 @Table({
   tableName: 'users',
@@ -43,7 +44,7 @@ export class User extends Model {
     defaultValue: 'active',
     allowNull: false,
   })
-  status!: 'active' | 'inactive';
+  status!: StatusUser;
 
   @Column({
     type: DataType.STRING(20),

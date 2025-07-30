@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import body_parser from 'body-parser';
 import morgan from 'morgan';
-import { connectDatabase } from 'model/connect';
+import { connectDatabase } from 'models/connect';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

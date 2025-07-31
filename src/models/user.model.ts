@@ -56,6 +56,24 @@ export class User extends Model {
     allowNull: true,
   })
   address!: string;
+
+  @Column({
+    type: DataType.STRING(6),
+    allowNull: true,
+  })
+  otpCode?: string;
+
+  @Column({
+    type: DataType.DATE,
+    allowNull: true,
+  })
+  otpExpires?: Date;
+  @Column({
+    type: DataType.BOOLEAN,
+    defaultValue: false
+  })
+  isVerified!: boolean;
+
 }
 
 export default User;

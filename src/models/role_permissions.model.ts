@@ -22,12 +22,6 @@ export class RolePermission extends Model {
   })
   permission_id!: number;
 
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  created_at!: Date;
 }
 
 export default RolePermission;

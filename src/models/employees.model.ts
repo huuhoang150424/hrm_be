@@ -59,19 +59,6 @@ export class Employee extends Model {
   })
   deleted!: boolean;
 
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  created_at!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  updated_at!: Date;
 }
 
 export default Employee;

@@ -48,19 +48,6 @@ export class Overtime extends Model {
   })
   status!: StatusOvertime;
 
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  created_at!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  updated_at!: Date;
 }
 
 export default Overtime;

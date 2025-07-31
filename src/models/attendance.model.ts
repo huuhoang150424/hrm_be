@@ -3,7 +3,7 @@ import {Employee} from '@models'
 
 @Table({
   tableName: 'attendance',
-  timestamps: true, // Tự động thêm createdAt và updatedAt, nhưng sẽ ghi đè bằng giá trị mặc định dưới đây
+  timestamps: true, 
 })
 export class Attendance extends Model {
   @PrimaryKey
@@ -39,19 +39,6 @@ export class Attendance extends Model {
   })
   work_date!: Date | null;
 
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  created_at!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  updated_at!: Date;
 }
 
 export default Attendance;

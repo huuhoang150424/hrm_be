@@ -26,19 +26,6 @@ export class Permission extends Model {
   })
   description!: string;
 
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  created_at!: Date;
-
-  @Column({
-    type: DataType.DATE,
-    defaultValue: DataType.NOW,
-    allowNull: false,
-  })
-  updated_at!: Date;
 }
 
 export default Permission;

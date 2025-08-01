@@ -6,13 +6,13 @@ import { validatorChangePassword, validatorResetPassword } from "@validation/aut
 import { authMiddleware } from "@middleware/auth";
 
 
-router.get("/login", validatorLogin,AuthController.login as any);
-router.post("/sendVerify",AuthController.sendVerify as any);
-router.get("/verify",AuthController.verify as any);
-router.post("/logout", AuthController.logout as any);
-router.post("/forgotPassword", AuthController.forgotPassword as any);
-router.patch("/resetPassword",validatorResetPassword, AuthController.resetPassword as any);
-router.patch("/changePassword",validatorChangePassword,authMiddleware, AuthController.changePassword as any);
+router.get("/login", validatorLogin,AuthController.login );
+router.post("/sendVerify",AuthController.sendVerify );
+router.get("/verify",AuthController.verify );
+router.post("/logout", AuthController.logout );
+router.post("/forgotPassword", AuthController.forgotPassword );
+router.patch("/resetPassword",validatorResetPassword, AuthController.resetPassword );
+router.patch("/changePassword",validatorChangePassword,authMiddleware, AuthController.changePassword );
 
 
 

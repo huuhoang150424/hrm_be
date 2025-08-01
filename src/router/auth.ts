@@ -6,7 +6,7 @@ import { validatorChangePassword, validatorResetPassword } from "@validation/aut
 import { authMiddleware } from "@middleware/auth";
 
 
-router.get("/login", validatorLogin,AuthController.login );
+router.post("/login", validatorLogin,AuthController.login );
 router.post("/sendVerify",AuthController.sendVerify );
 router.get("/verify",AuthController.verify );
 router.post("/logout", AuthController.logout );

@@ -1,9 +1,8 @@
 'use-strict';
 import { Request, Response, NextFunction } from 'express';
 import { AuthService } from "@service";
-import { ApiResponse, UnauthorizedError } from "@helper";
+import { ApiResponse } from "@helper";
 import "dotenv/config";
-import { error } from 'console';
 class AuthController {
   //[login]
   static async login(req: Request, res: Response, next: NextFunction) {

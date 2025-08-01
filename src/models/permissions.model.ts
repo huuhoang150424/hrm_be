@@ -1,31 +1,35 @@
-import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
+// permissions.model.ts
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  PrimaryKey,
+  AutoIncrement,
+  BelongsToMany
+} from 'sequelize-typescript';
+import { Role } from './roles.model';
+import { RolePermission } from './role_permissions.model';
 
 @Table({
   tableName: 'permissions',
-  timestamps: true, // Tự động thêm createdAt và updatedAt, nhưng sẽ ghi đè bằng giá trị mặc định dưới đây
+  timestamps: true,
 })
 export class Permission extends Model {
   @PrimaryKey
   @AutoIncrement
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
+  @Column({ type: DataType.INTEGER, allowNull: false })
   id!: number;
 
-  @Column({
-    type: DataType.STRING(50),
-    allowNull: false,
-    unique: true,
-  })
+  @Column({ type: DataType.STRING(50), allowNull: false, unique: true })
   name!: string;
 
-  @Column({
-    type: DataType.TEXT,
-    allowNull: true,
-  })
+  @Column({ type: DataType.TEXT, allowNull: true })
   description!: string;
 
+  // ✅ Quan hệ với Role
+  @BelongsToMany(() => Role, () => RolePermission)
+  roles!: Role[];
 }
 
 export default Permission;

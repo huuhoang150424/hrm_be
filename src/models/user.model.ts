@@ -1,15 +1,25 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
+import {
+  Table,
+  Column,
+  Model,
+  DataType,
+  PrimaryKey,
+  AutoIncrement,
+  ForeignKey,
+  BelongsTo,
+} from 'sequelize-typescript';
 import { StatusUser } from './enums';
+import { Role } from './roles.model'; // Đảm bảo đúng đường dẫn import
 
 @Table({
   tableName: 'users',
-  timestamps: true, // Tự động thêm createdAt và updatedAt
+  timestamps: true,
 })
 export class User extends Model {
+  @PrimaryKey
+  @AutoIncrement
   @Column({
     type: DataType.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
     allowNull: false,
   })
   id!: number;
@@ -69,12 +79,23 @@ export class User extends Model {
     allowNull: true,
   })
   otpExpires?: Date;
+
   @Column({
     type: DataType.BOOLEAN,
-    defaultValue: false
+    defaultValue: false,
   })
   isVerified!: boolean;
 
+  // ✅ Khóa ngoại role_id
+  @ForeignKey(() => Role)
+  @Column({
+    type: DataType.INTEGER,
+    allowNull: false,
+  })
+  role_id!: number;
+
+  @BelongsTo(() => Role)
+  role!: Role;
 }
 
 export default User;

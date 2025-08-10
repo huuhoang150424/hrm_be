@@ -1,5 +1,5 @@
 import { check } from 'express-validator';
-import { validateRequest } from "validation/validate-request";
+import { validateRequest } from "@validation/validate.request";
 
 
 const validatorLogin = [

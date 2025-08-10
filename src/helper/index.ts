@@ -1,10 +1,10 @@
 import { sendMail } from './sendMail';
-import ValidationError from "./error/validator-error";
-import UnauthorizedError from "./error/unauthorized-error";
-import NotFoundError from "./error/notFound-error";
-import TokenError from "./error/token-error";
-import BadRequestError from "./error/bad-request-error";
-import ForbiddenError from "./error/notForbidden-error";
+import ValidationError from "./error/validator.error";
+import UnauthorizedError from "./error/unauthorized.error";
+import NotFoundError from "./error/notFound.error";
+import TokenError from "./error/token.error";
+import BadRequestError from "./error/badRequest.error";
+import ForbiddenError from "./error/notForbidden.error";
 import ApiResponse from "./reponse";
 
 

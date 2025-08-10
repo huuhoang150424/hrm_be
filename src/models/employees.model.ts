@@ -1,19 +1,9 @@
-import {
-  Table,
-  Column,
-  Model,
-  DataType,
-  PrimaryKey,
-  AutoIncrement,
-  ForeignKey,
-  BelongsTo,
-} from 'sequelize-typescript';
+import { Table, Column, Model, DataType, PrimaryKey, AutoIncrement } from 'sequelize-typescript';
 import { StatusUser } from './enums';
-import { Role } from './roles.model'; // Cập nhật đường dẫn nếu khác
 
 @Table({
   tableName: 'employees',
-  timestamps: true,
+  timestamps: true, 
 })
 export class Employee extends Model {
   @PrimaryKey
@@ -33,7 +23,7 @@ export class Employee extends Model {
   @Column({
     type: DataType.STRING(100),
     unique: true,
-    allowNull: true,
+    allowNull: true, // Cho phép null theo schema, nhưng bạn có thể đặt not null nếu cần
   })
   email!: string | null;
 
@@ -69,16 +59,6 @@ export class Employee extends Model {
   })
   deleted!: boolean;
 
-  // ✅ Foreign key đến roles
-  @ForeignKey(() => Role)
-  @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
-  role_id!: number;
-
-  @BelongsTo(() => Role)
-  role!: Role;
 }
 
 export default Employee;

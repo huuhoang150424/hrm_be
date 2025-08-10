@@ -64,7 +64,7 @@ class AuthController {
 
   static async sendVerify(req: Request, res: Response, next: NextFunction) {
     try {
-      const { email } = req.body; // req.body phải chứa email
+      const { email } = req.body; 
       const data = await AuthService.sendVerify(email);
       return res
         .status(200)
